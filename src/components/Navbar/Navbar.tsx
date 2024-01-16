@@ -9,7 +9,7 @@ export default function Navbar() {
       <Logo />
       <div className="flex gap-4 items-center">
         <ModeToggle />
-        <Button className="font-geist font-semibold rounded-full" asChild>
+        <Button className="font-primary font-semibold rounded-full" asChild>
           <Link to={"/login"}>Login</Link>
         </Button>
       </div>

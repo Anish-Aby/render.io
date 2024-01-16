@@ -10,7 +10,7 @@ module.exports = {
   prefix: "",
   theme: {
     fontFamily: {
-      geist: ["Geist", "Arial", "sans-serif"],
+      primary: ["Inter", "Arial", "sans-serif"],
     },
     container: {
       center: true,
