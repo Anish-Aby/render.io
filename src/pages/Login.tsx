@@ -27,6 +27,7 @@ export default function Login() {
               Email
             </Label>
             <Input
+              type="email"
               id="email"
               name="email"
               className="text-base p-6 rounded-xl"
