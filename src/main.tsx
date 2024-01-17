@@ -6,6 +6,7 @@ import "./index.css";
 import Login from "./pages/Login.tsx";
 import { ThemeProvider } from "./components/theme-provider.tsx";
 import NotFound from "./components/NotFound/NotFound.tsx";
+import Signup from "./pages/Signup.tsx";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
   },
 ]);
 

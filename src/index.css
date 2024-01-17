@@ -3,16 +3,33 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: "Geist";
-    src: url("/fonts/GeistVariableVF.ttf");
-}
-
-@font-face {
     font-family: "Inter";
     src: url("/fonts/Inter-VariableFont_slnt\,wght.ttf");
 }
 
+@font-face {
+    font-family: "Walsheim black";
+    src: url("/fonts/GT-Walsheim-Black-Trial.woff2") format('woff2');
+    text-rendering: optimizeLegibility;
+}
 
+@font-face {
+    font-family: "Walsheim medium";
+    src: url("/fonts/GT-Walsheim-Medium-Trial.woff2") format('woff2');
+    text-rendering: optimizeLegibility;
+}
+
+@font-face {
+    font-family: "Walsheim bold";
+    src: url("/fonts/GT-Walsheim-Bold-Trial.woff2") format('woff2');
+    text-rendering: optimizeLegibility;
+}
+
+@font-face {
+    font-family: "Walsheim regular";
+    src: url("/fonts/GT-Walsheim-Regular-Trial.woff2") format('woff2');
+    text-rendering: optimizeLegibility;
+}
 
 * {
     margin: 0;
@@ -25,6 +42,8 @@
     :root {
         --background: 0 0% 100%;
         --foreground: 240 10% 3.9%;
+
+        --green-accent: 70 77% 64%;
 
         --nav-background: 0, 0%, 100%, 0.6;
 
@@ -59,6 +78,8 @@
     .dark {
         --background: 240 10% 3.9%;
         --foreground: 0 0% 98%;
+
+        --green-accent: 70 77% 64%;
 
         --nav-background: 0, 0%, 3.92%, 0.7;
 

@@ -11,6 +11,10 @@ module.exports = {
   theme: {
     fontFamily: {
       primary: ["Inter", "Arial", "sans-serif"],
+      p1: ["Walsheim regular", "Arial", "sans-serif"],
+      p2: ["Walsheim medium", "Arial", "sans-serif"],
+      p3: ["Walsheim bold", "Arial", "sans-serif"],
+      p4: ["Walsheim black", "Arial", "sans-serif"],
     },
     container: {
       center: true,
@@ -23,6 +27,7 @@ module.exports = {
       colors: {
         border: "hsl(var(--border))",
         nav: "hsl(var(--nav-background))",
+        greenAccent: "hsl(var(--green-accent))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",

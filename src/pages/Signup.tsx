@@ -1,4 +1,3 @@
-import GradientAccent from "@/components/ui/GradientAccent";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -11,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link } from "react-router-dom";
 
-export default function Login() {
+export default function Signup() {
   return (
     <div className="flex max-w-xl items-center flex-col justify-center h-svh font-p1">
       <Card className="w-11/12 flex flex-col rounded-3xl py-2 min-h-fit">
@@ -21,7 +20,7 @@ export default function Login() {
           </CardTitle>
         </CardHeader>
         <CardContent className="flex flex-col w-full h-full gap-5">
-          <h3 className="text-2xl font-p1">Login to Render.io</h3>
+          <h3 className="text-2xl font-p1">Create your account</h3>
           <div className="flex flex-col gap-4">
             <Label htmlFor="email" className="text-base">
               Email
@@ -44,16 +43,19 @@ export default function Login() {
             ></Input>
           </div>
           <Button className="rounded-full font-p2 text-lg p-6 bg-greenAccent text-black">
-            Login to Render
+            Create account
           </Button>
-          <p className="underline text-base flex justify-center">
-            Forgot password?
+          <p className="text-xs text-center">
+            When you click 'create account', you agree with Render.io{" "}
+            <span className="inline underline">Terms and Conditions</span>, and
+            confirming that you've read our{" "}
+            <span className="inline underline">Privacy Notice</span>.
           </p>
         </CardContent>
         <CardFooter className="justify-center gap-1">
-          <p>Don't have an account?</p>
-          <Link to={"/signup"} className="underline">
-            Sign up
+          <p>Already have an account?</p>
+          <Link to="/login" className="underline">
+            Log in
           </Link>
         </CardFooter>
       </Card>
