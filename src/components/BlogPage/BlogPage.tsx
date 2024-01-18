@@ -1,4 +1,3 @@
-import BottomMenu from "../BottomMenu/BottomMenu";
 import Navbar from "../Navbar/Navbar";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import Markdown from "markdown-to-jsx";
