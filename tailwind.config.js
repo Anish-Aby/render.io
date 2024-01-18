@@ -28,6 +28,8 @@ module.exports = {
         border: "hsl(var(--border))",
         nav: "hsl(var(--nav-background))",
         greenAccent: "hsl(var(--green-accent))",
+        pinkAccent: "hsl(var(--pink-accent))",
+        purpleAccent: "hsl(var(--purple-accent))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",

@@ -1,3 +1,4 @@
+import GradientAccent from "@/components/ui/GradientAccent";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -13,6 +14,7 @@ import { Link } from "react-router-dom";
 export default function Login() {
   return (
     <div className="flex max-w-xl items-center flex-col justify-center h-svh font-p1">
+      <GradientAccent />
       <Card className="w-11/12 flex flex-col rounded-3xl py-2 min-h-fit">
         <CardHeader>
           <CardTitle className="uppercase font-p3 text-2xl">

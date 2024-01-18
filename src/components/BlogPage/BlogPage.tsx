@@ -1,6 +1,9 @@
+import BottomMenu from "../BottomMenu/BottomMenu";
 import Navbar from "../Navbar/Navbar";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import Markdown from "markdown-to-jsx";
+import BlogCTAMenu from "./BlogCTAMenu";
+import BlogAuthorDetails from "./BlogAuthorDetails";
 
 const blog = {
   name: "Anish Aby",
@@ -12,20 +15,23 @@ const blog = {
   subHeading: "How Hashnode calculates feeds on scale and serverless",
   blogImage:
     "https://cdn.hashnode.com/res/hashnode/image/upload/v1699961744035/51aa7ebc-e811-44bd-97e1-ed00e3506fbc.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
-  body: ` <p>We&nbsp;<a href="https://engineering.hashnode.com/the-art-of-feed-curating-our-approach-to-generating-personalized-feeds-that-match-users-interests" target="_blank" rel="noopener">previously explained</a>&nbsp;how we calculate the Hashnode Feed and select content and metadata for each user. We found that the feed now displays improved and personalized content. However, we did find two issues in the implementation:</p>
+  body: ` <p>We&nbsp;<a href="https://engineering.hashnode.com/the-art-of-feed-curating-our-approach-to-generating-personalized-feeds-that-match-users-interests" target="_blank" rel="noopener">previously explained</a>&nbsp;how we calculate the Hashnode Feed and select content and metadata for each user. We found that the feed now displays improved and personalized content. However, we did find two issues in the implementation:</p><br />
 <ul>
 <li>
 <p><strong>Performance</strong>: The Feed calculation is not trivial; thus, it slows down the access to our main page.</p>
 </li>
+<br />
 <li>
 <p><strong>Security</strong>: Many expensive queries and aggregations are needed to gather all the data required for the calculation. Safeguarding our database from excessive usage is a must.</p>
 </li>
+<br />
 </ul>
 <p>Speeding up the page, keeping our databased safe, and showing the freshest content for you on the Hompage was the inspiration for building Feeds on steroids: a scalable and serverless architecture to pre-calculate feeds for recurring users 💊</p>
 <p>&nbsp;</p>
 <p><img class="image--center mx-auto" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1701676684074/b5095a33-6ce7-4119-8a9b-78acc6afe43a.png?auto=compress,format&amp;format=webp" alt="High level overview of Hashnode's scalable feed architecture" loading="lazy"></p>
 <p>&nbsp;</p>
 <p>To optimize page speed, we found that pre-calculating feeds for users is the best option. This means we don't have to calculate the feed every time a user visits our feed page. Instead, we can return the feed from the cache and make page loading times faster. A crucial enabler for this is using a cache. With the fast access a cache offers, we can directly load the feed from there to be presented for our users. The above image shows this in a very high abstraction. We are calculating feeds using data from our internal database and a cache for relevant metadata. The calculated data is then stored in a cache for quick access.</p>
+<br />
 <p>Let's take a look at how everything comes together in detail ⬇️</p>
 <p>&nbsp;</p>
 <h2 id="heading-pre-calculating-feeds-for-thousands-of-users-with-aws-step-functions" class="permalink-heading">Pre-calculating feeds for thousands of users with AWS Step Functions 😎</h2>
@@ -35,12 +41,15 @@ const blog = {
 <p>We calculate the feed for each user based on internal Hashnode events. These events require a re-calculation of the feeds. An example here is publishing a new post on Hashnode.</p>
 <ul>
 <li>
+<br />
 <p><strong>Prepare the cache</strong>: Before we start calculating each feed, we must ensure that all data required is in the cache. The final calculation step is wholly based on the cache. This includes user metadata, relevant data for posts, and active users for whom we are pre-calculating. If data is unavailable in the cache or too old for usage, we pull fresh data from our internal database.</p>
 </li>
 <li>
+<br />
 <p><strong>Calculate the feed</strong>: We start the actual calculation when all data is prepared and ready in the cache. We use an AWS Step Function feature called distributed map execution to do this in parallel. We can calculate multiple feeds simultaneously and reduce execution time. Each calculation has its own AWS Lambda function.</p>
 </li>
 </ul>
+<br />
 <p>If each user's feed would be calculated on the fly, we would see longer loading times on Hashnode's main page. To do the calculation, we need a lot of data. We must get all the data from the database. This will affect other queries. Lastly, a simple approach like that seems wasteful. We are pulling in the same data again and again for the calculation without reusing it.</p>
 <p>&nbsp;</p>
 <p>The above architecture reference shows the feed pre-calculation process. We utilize a couple of services to achieve a performant recalculation on various triggers:</p>
@@ -110,7 +119,7 @@ export default function BlogPage() {
             <img src={blog.blogImage} className="rounded-lg w-full" />
           </div>
           <div className="font-p2 text-2xl">{blog.title}</div>
-          <div className="flex gap-4 items-center my-5">
+          <div className="flex gap-4 items-center my-8">
             <Avatar className="h-14 aspect-square w-14">
               <AvatarImage src="https://github.com/shadcn.png" />
               <AvatarFallback>CN</AvatarFallback>
@@ -118,11 +127,14 @@ export default function BlogPage() {
             <h3 className="text-xl">{blog.name}</h3>
             <p className="opacity-50 text-lg">{blog.date}</p>
           </div>
-          <div className="w-full text-lg font-primary leading-8">
+          <div className="w-full text-xl font-primary leading-8 mb-5">
             <Markdown>{blog.body}</Markdown>
           </div>
         </div>
+        {/* <BottomMenu /> */}
+        <BlogCTAMenu />
       </article>
+      <BlogAuthorDetails author={blog.name} />
     </>
   );
 }
