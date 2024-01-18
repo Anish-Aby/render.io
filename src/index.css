@@ -123,3 +123,7 @@
 body {
     background-color: var(hsl(--background));
 }
+
+img {
+    max-width: 100%;
+}

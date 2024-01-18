@@ -12,6 +12,7 @@ export default function BlogsContainer() {
           <p className="text-center font-primary">
             Looks like there aren't any blogs yet.
           </p>
+          <p className="text-center font-primary">Check back later again.</p>
         </div>
       )}
     </div>

@@ -9,6 +9,7 @@ export const blogs = [
     name: "Anish Aby",
     date: "December 02, 2023",
     category: "Technology",
+    isFeatured: true,
     image:
       "https://images.unsplash.com/photo-1628126235206-5260b9ea6441?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
@@ -23,6 +24,7 @@ export const blogs = [
     name: "Sarthak Pattnaik",
     date: "December 02, 2023",
     category: "Technology",
+    isFeatured: false,
     image:
       "https://cdn.hashnode.com/res/hashnode/image/upload/v1699366584970/eb163c65-a211-4857-9699-85b7c6b49bb6.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
   },
@@ -37,6 +39,7 @@ export const blogs = [
     name: "Susan",
     date: "December 02, 2023",
     category: "Technology",
+    isFeatured: false,
     image:
       "https://cdn.hashnode.com/res/hashnode/image/stock/unsplash/5PCeHBkMCmk/upload/d64bd5d2807beefa60002af51a82524f.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
   },
@@ -52,6 +55,7 @@ export const blogs = [
     name: "Ben Adams",
     date: "December 02, 2023",
     category: "Technology",
+    isFeatured: true,
     image:
       "https://cdn.hashnode.com/res/hashnode/image/upload/v1701405106126/9b08d7c0-4878-43d7-a528-dc91e233ad00.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
   },
@@ -66,6 +70,7 @@ export const blogs = [
     name: "KnightBits",
     date: "December 02, 2023",
     category: "Technology",
+    isFeatured: false,
     image:
       "https://cdn.hashnode.com/res/hashnode/image/upload/v1701302785060/01e6a632-7a5d-4aac-8e9e-37ece99e7703.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
   },
@@ -80,6 +85,7 @@ export const blogs = [
     name: "Dan Richards",
     date: "December 02, 2023",
     category: "Technology",
+    isFeatured: false,
     image:
       "https://cdn.hashnode.com/res/hashnode/image/upload/v1701267053539/06c04e6f-e256-48b5-94e6-6ecc3b51cfa6.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
   },

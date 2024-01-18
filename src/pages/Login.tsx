@@ -1,4 +1,3 @@
-import GradientAccent from "@/components/ui/GradientAccent";
 import { Button } from "@/components/ui/button";
 import {
   Card,
