@@ -8,6 +8,7 @@ import { ThemeProvider } from "./components/theme-provider.tsx";
 import NotFound from "./components/NotFound/NotFound.tsx";
 import Signup from "./pages/Signup.tsx";
 import BlogPage from "./components/BlogPage/BlogPage.tsx";
+import { Toaster } from "./components/ui/sonner.tsx";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
     element: <Signup />,
   },
   {
-    path: "/blog",
+    path: "/blog/:blogId",
     element: <BlogPage />,
   },
 ]);
@@ -33,6 +34,7 @@ const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(
   <React.StrictMode>
     <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+      <Toaster />
       <RouterProvider router={router} />
     </ThemeProvider>
   </React.StrictMode>

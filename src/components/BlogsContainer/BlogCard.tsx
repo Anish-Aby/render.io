@@ -20,7 +20,7 @@ type BlogCardProps = {
 
 export default function BlogCard({ blog }: BlogCardProps) {
   return (
-    <Link to="/blog">
+    <Link to={`/blog/${blog.id}`}>
       <article className="w-full border-b border-border py-4 gap-4 flex flex-col font-p1">
         <div className="w-full grid grid-cols-3 grid-rows-1 ">
           <div className="flex gap-4 col-span-2">
@@ -29,7 +29,7 @@ export default function BlogCard({ blog }: BlogCardProps) {
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
             <div className="font-medium flex flex-col justify-around mr-5">
-              <h3 className="text-md">{blog.name}</h3>
+              <h3 className="text-md">{blog.author}</h3>
               <p className="opacity-50 text-sm">{blog.date}</p>
             </div>
           </div>
@@ -44,12 +44,12 @@ export default function BlogCard({ blog }: BlogCardProps) {
           )}
         </div>
         <div>
-          <h2 className="text-lg font-p2">{blog.title}</h2>
+          <h2 className="text-lg font-p2">{blog.blogTitle}</h2>
         </div>
         <div className="w-full aspect-video h-40 rounded-xl font-primary">
           <img
             className="flex w-full h-full rounded-xl object-cover "
-            src={blog.image}
+            src={blog.blogImage}
           />
         </div>
         <div className="grid grid-rows-1 grid-cols-2">

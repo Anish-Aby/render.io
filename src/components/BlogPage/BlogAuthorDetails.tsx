@@ -7,7 +7,7 @@ type BlogAuthorDetailsProps = {
 
 export default function BlogAuthorDetails({ author }: BlogAuthorDetailsProps) {
   return (
-    <div className="bg-secondary py-10 px-5 font-p1">
+    <div className="bg-secondary py-10 px-5 font-p1 rounded-t-3xl">
       <div className="flex w-full items-center mb-4 text-secondary-foreground">
         <Avatar className="h-14 aspect-square w-14">
           <AvatarImage src="https://github.com/shadcn.png" />

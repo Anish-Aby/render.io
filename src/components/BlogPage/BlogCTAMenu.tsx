@@ -8,8 +8,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
+import { toast } from "sonner";
 
 export default function BlogCTAMenu() {
+  function handleCopyLinkClick() {
+    toast.success("Link copied!");
+  }
+
   return (
     <div className="sticky left-0 w-full flex justify-center bottom-5 mb-5">
       <div className="w-4/5 flex bg-background border-border border rounded-full p-4 justify-around text-foreground">
@@ -21,7 +26,12 @@ export default function BlogCTAMenu() {
             <Share2 />
           </DropdownMenuTrigger>
           <DropdownMenuContent className="font-p1">
-            <DropdownMenuItem className="my-3 text-lg flex gap-3">
+            <DropdownMenuItem
+              className="my-3 text-lg flex gap-3"
+              onClick={() => {
+                handleCopyLinkClick();
+              }}
+            >
               <Link2 />
               <p>Copy link</p>
             </DropdownMenuItem>
