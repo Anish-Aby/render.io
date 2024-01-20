@@ -23,8 +23,6 @@ import { blogsTable } from "./../../../public/data/blogsTable";
 export default function BlogPage() {
   const { blogId } = useParams();
   const blogIndex = +blogId!;
-  console.log(blogId);
-  console.log(blogIndex);
   // let blog: BlogPageProps;
 
   const blog = blogs[blogIndex];
