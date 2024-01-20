@@ -6,15 +6,17 @@ import { Link } from "react-router-dom";
 type BlogCardProps = {
   blog: {
     id: number;
-    title: string;
-    description: string;
-    likes: number;
-    comments: number;
-    name: string;
+    author: string;
     date: string;
+    readTime: string;
+    blogTitle: string;
+    blogSubTitle: string;
+    likesCount: number;
+    commentsCount: number;
     category: string;
     isFeatured: boolean;
-    image: string;
+    blogImage: string;
+    blogContent: number;
   };
 };
 
@@ -56,12 +58,14 @@ export default function BlogCard({ blog }: BlogCardProps) {
           <div className="flex gap-5">
             <div className="flex gap-2 justify-self-start opacity-70 items-center justify-center">
               <Heart className="text-foreground w-full" />
-              <p className="flex justify-center text-base font-primary">10</p>
+              <p className="flex justify-center text-base font-primary">
+                {blog.likesCount}
+              </p>
             </div>
             <div className="flex gap-2 justify-self-center opacity-70 font-p1">
               <MessageCircle />
               <p className="flex justify-center items-center text-base font-primary">
-                5
+                {blog.commentsCount}
               </p>
             </div>
           </div>

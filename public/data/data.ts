@@ -1,5 +1,3 @@
-import { blogsTable } from "./blogsTable";
-
 export const blogs = [
   {
     id: 0,
@@ -30,9 +28,7 @@ export const blogs = [
     isFeatured: false,
     blogImage:
       "https://cdn.hashnode.com/res/hashnode/image/upload/v1705398436877/326e3f9d-8632-4949-be8c-13657e8b4fe3.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
-    blogContent: function () {
-      return blogsTable[this.id];
-    },
+    blogContent: 1,
   },
 
   {
@@ -49,14 +45,12 @@ export const blogs = [
     isFeatured: false,
     blogImage:
       "https://cdn.hashnode.com/res/hashnode/image/stock/unsplash/UYsBCu9RP3Y/upload/60bb80b1ff6d7904fb7e2c771b83697e.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
-    blogContent: function () {
-      return blogsTable[this.id];
-    },
+    blogContent: 1,
   },
 
   {
     id: 3,
-    blogTitle: "How To Create A Custom 404 Page In Next Js App Router",
+    blogTitle: "How to create a custom 404 page in NextJS",
     blogSubTitle: "How Hashnode calculates feeds on scale and serverless",
     readTime: "6 mins read",
     likesCount: 0,
@@ -66,15 +60,13 @@ export const blogs = [
     category: "Technology",
     isFeatured: true,
     blogImage:
-      "https://cdn.hashnode.com/res/hashnode/image/upload/v1705575636475/46e03408-a5a1-48eb-b534-36c4445f73c5.gif?w=1600&h=840&fit=crop&crop=entropy&auto=format,compress&gif-q=60&format=webm",
-    blogContent: function () {
-      return blogsTable[this.id];
-    },
+      "https://cdn.hashnode.com/res/hashnode/image/upload/v1658137896839/1Y1k0v8ki.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
+    blogContent: 1,
   },
 
   {
     id: 4,
-    blogTitle: "GIT Cheat Sheet",
+    blogTitle: "React Design Patterns ⭐",
     blogSubTitle: "Commands",
     readTime: "6 mins read",
     likesCount: 5,
@@ -84,15 +76,13 @@ export const blogs = [
     category: "Technology",
     isFeatured: false,
     blogImage:
-      "https://cdn.hashnode.com/res/hashnode/image/stock/unsplash/KPAQpJYzH0Y/upload/6da76f18f3503c2ae470a187b6b754fe.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
-    blogContent: function () {
-      return blogsTable[this.id];
-    },
+      "https://cdn.hashnode.com/res/hashnode/image/upload/v1705675120414/33cdcf16-2f72-4cd6-96bb-8c889e03c3ee.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
+    blogContent: 1,
   },
 
   {
     id: 5,
-    blogTitle: "Navigating the World of CDNs",
+    blogTitle: "Diving into Kubernetes: A Journey of Immersive Learning 🌐",
     blogSubTitle: "How Hashnode calculates feeds on scale and serverless",
     readTime: "6 mins read",
     likesCount: 10,
@@ -102,9 +92,7 @@ export const blogs = [
     category: "Technology",
     isFeatured: false,
     blogImage:
-      "https://cdn.hashnode.com/res/hashnode/image/upload/v1705581288211/8e23e522-43de-45a0-97ef-44908ba44bb1.webp?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
-    blogContent: function () {
-      return blogsTable[this.id];
-    },
+      "https://cdn.hashnode.com/res/hashnode/image/upload/v1705600709259/98b7bc05-d7ba-4e0b-bbfe-25013993b712.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp",
+    blogContent: 1,
   },
 ];

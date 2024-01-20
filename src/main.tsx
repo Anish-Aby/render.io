@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./pages/App.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -9,6 +8,8 @@ import NotFound from "./components/NotFound/NotFound.tsx";
 import Signup from "./pages/Signup.tsx";
 import BlogPage from "./components/BlogPage/BlogPage.tsx";
 import { Toaster } from "./components/ui/sonner.tsx";
+import BlogDraft from "./pages/BlogDraft.tsx";
+// import React from "react";
 
 const router = createBrowserRouter([
   {
@@ -28,14 +29,18 @@ const router = createBrowserRouter([
     path: "/blog/:blogId",
     element: <BlogPage />,
   },
+  {
+    path: "/draft",
+    element: <BlogDraft />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(
-  <React.StrictMode>
-    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-      <Toaster />
-      <RouterProvider router={router} />
-    </ThemeProvider>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+    <Toaster />
+    <RouterProvider router={router} />
+  </ThemeProvider>
+  // </React.StrictMode>
 );
