@@ -36,7 +36,7 @@ export default function Navbar() {
           className="font-p2 font-semibold rounded-full bg-greenAccent text-black"
           asChild
         >
-          <Link to={"/login"}>Login</Link>
+          <Link to={"/draft"}>Login</Link>
         </Button>
       </div>
     </nav>
