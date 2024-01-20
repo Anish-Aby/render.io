@@ -15,7 +15,7 @@ export default function BlogDraft() {
   }, []);
 
   const handleSave = useCallback(async () => {
-    const getCurrentData = await editorCore.current;
+    const getCurrentData = editorCore.current;
     const savedData = await (getCurrentData as any).save();
     // const savedData = await editorCore.current.save();
     console.log(savedData);
