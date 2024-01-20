@@ -3,11 +3,7 @@ import { Button } from "../ui/button";
 import { ModeToggle } from "./../Navbar/ModeToggle";
 import { useEffect, useState } from "react";
 
-// type BlogDraftNavbarProps = {
-//   handleSave: () => void;
-// };
-
-export default function BlogDraftNavbar() {
+export default function BlogDraftNavbar({ onSave }: { onSave: () => void }) {
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -36,7 +32,7 @@ export default function BlogDraftNavbar() {
       <div className="flex gap-4 items-center">
         <ModeToggle />
         <Button
-          // onClick={handleSave}
+          onClick={onSave}
           className="font-p2 font-semibold rounded-full bg-greenAccent text-black"
         >
           Publish
