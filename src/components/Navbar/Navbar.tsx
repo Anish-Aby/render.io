@@ -7,7 +7,6 @@ import { IoIosSearch } from "react-icons/io";
 import {
   NavigationMenu,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
 } from "../ui/navigation-menu";
 
@@ -41,13 +40,19 @@ export default function Navbar() {
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList className="lg:gap-10 xl:gap-16">
             <NavigationMenuItem>
-              <Link to={"/following"}>Following</Link>
+              <Button className="rounded-full" variant={"outline"} asChild>
+                <Link to={"/featured"}>Featured</Link>
+              </Button>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/featured">Featured</Link>
+              <Button className="rounded-full" variant={"ghost"} asChild>
+                <Link to={"/following"}>Following</Link>
+              </Button>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/update-logs">Update Logs</Link>
+              <Button className="rounded-full" variant={"ghost"} asChild>
+                <Link to={"/update-logs"}>Update Logs</Link>
+              </Button>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>

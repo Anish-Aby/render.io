@@ -3,7 +3,7 @@ import { blogs } from "../../../public/data/data";
 
 export default function BlogsContainer() {
   return (
-    <div className="w-full flex flex-col gap-4">
+    <div className="w-full flex flex-col gap-4 mt-10">
       {blogs.length > 0 ? (
         blogs.map((blog) => <BlogCard blog={blog} key={blog.id} />)
       ) : (

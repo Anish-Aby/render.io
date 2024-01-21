@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 export default function Signup() {
   return (
     <div className="flex w-full justify-center md:justify-start md:min-h-screen">
-      <div className="w-2/6 h-full hidden md:flex bg-none border-none md:w-2/6 md:mr-14 lg:mr-15 lg:w-1/4 xl:mr-20 relative">
+      <div className="w-2/6 h-full hidden md:flex bg-none border-none md:min-w-64 md:w-2/6 md:mr-14 lg:mr-15 lg:w-1/3 xl:mr-20 relative">
         <Logo className="absolute top-5 left-5 hidden md:flex z-20 md:text-base lg:text-lg xl:text-xl" />
         <p className="absolute font-p1 bottom-5 left-5 z-10">
           <a href="https://dribbble.com/nguyenhut">dribbble/@nguyenhut</a>

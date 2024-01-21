@@ -1,14 +1,19 @@
+import { Gem, Users } from "lucide-react";
 import { Button } from "../ui/button";
 
 export default function FeedSelector() {
   return (
-    <div className="my-10 flex gap-2 font-p1">
-      <Button className="rounded-full text-base">Following</Button>
+    <div className="mt-10 flex gap-2 font-p1">
+      <Button className="rounded-full text-base flex gap-2">
+        <Users className="w-full h-4 hidden md:flex" />
+        <p>Following</p>
+      </Button>
       <Button
-        variant="outline"
-        className="rounded-full text-base bg-transparent"
+        variant="ghost"
+        className="rounded-full text-base bg-transparent flex gap-2"
       >
-        Featured
+        <Gem className="h-4 hidden md:flex" />
+        <p>Featured</p>
       </Button>
     </div>
   );
