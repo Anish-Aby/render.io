@@ -22,7 +22,7 @@ type BlogCardProps = {
 
 export default function BlogCard({ blog }: BlogCardProps) {
   return (
-    <article className="w-full border-b border-border py-4 gap-4 flex flex-col font-p1">
+    <article className="w-full border-b border-border py-4 gap-4 flex flex-col font-p1 lg:pb-6">
       <div className="w-full grid grid-cols-3 grid-rows-1 ">
         <div className="flex gap-4 col-span-2">
           <Avatar className="h-14 aspect-square w-14">
@@ -37,10 +37,10 @@ export default function BlogCard({ blog }: BlogCardProps) {
         {blog.isFeatured && (
           <Badge
             variant="default"
-            className="h-min py-1 font-p1 font-normal text-sm justify-self-end flex"
+            className="h-min py-1 font-p1 font-normal text-sm justify-self-end flex md:gap-2"
           >
             <Gem className="h-4 w-full" />
-            <p className="hidden">Featured</p>
+            <p className="hidden md:flex">Featured</p>
           </Badge>
         )}
       </div>
@@ -50,6 +50,9 @@ export default function BlogCard({ blog }: BlogCardProps) {
             <h2 className="text-lg font-p2 md:text-xl md:font-p3">
               {blog.blogTitle}
             </h2>
+            <p className="hidden opacity-60 md:line-clamp-3">
+              {blog.blogSubTitle}
+            </p>
           </div>
           <div className="w-full aspect-video h-40 rounded-xl font-primary md:w-1/4 md:h-1/3">
             <img

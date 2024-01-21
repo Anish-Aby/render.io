@@ -5,7 +5,8 @@ export const blogs = [
     date: "December 02, 2023",
     readTime: "6 mins read",
     blogTitle: "Hashnode's Feed Architecture",
-    blogSubTitle: "How Hashnode calculates feeds on scale and serverless",
+    blogSubTitle:
+      "We previously explained how we calculate the Hashnode Feed and select content and metadata for each user. We found that the feed now displays improved and personalized content. However, we did find two issues in the implementation",
     likesCount: 12,
     commentsCount: 5,
     category: "Technology",
@@ -18,7 +19,8 @@ export const blogs = [
   {
     id: 1,
     blogTitle: "Setting Up Post Schedules with EventBridge Scheduler & CDK",
-    blogSubTitle: "How Hashnode calculates feeds on scale and serverless",
+    blogSubTitle:
+      "One essential feature of any blogging platform is the ability to schedule posts for publication. Hashnode introduced this functionality in June 2022.",
     readTime: "6 mins read",
     likesCount: 7,
     commentsCount: 5,
@@ -35,7 +37,7 @@ export const blogs = [
     id: 2,
     blogTitle: "Day 4 of 100days of code.🙆‍♀️😅",
     blogSubTitle:
-      "Hello 💕, and welcome to Day 4 of my challenge. Today, I'm taking it a step further💪.",
+      "React lets you add event handlers to your JSX. Event handlers are your own functions that will be triggered in response to interactions like clicking, hovering, focusing form inputs, and so on. For this concept about responding to events I will be using the React documentation.",
     readTime: "6 mins read",
     likesCount: 11,
     commentsCount: 0,
@@ -51,7 +53,8 @@ export const blogs = [
   {
     id: 3,
     blogTitle: "How to create a custom 404 page in NextJS",
-    blogSubTitle: "How Hashnode calculates feeds on scale and serverless",
+    blogSubTitle:
+      "In a NextJS app, when you visit a URL that is not available in your project, you will be redirected to a 404 page. This page comes default without any setup whatsoever. For many developers, this is quite enough but for those looking to add a custom look or maybe even have a button to redirect the user to another page, In this article, I'll walk you through the process on how to create a custom 404 page in NextJS.",
     readTime: "6 mins read",
     likesCount: 0,
     commentsCount: 0,
@@ -67,7 +70,8 @@ export const blogs = [
   {
     id: 4,
     blogTitle: "React Design Patterns ⭐",
-    blogSubTitle: "Commands",
+    blogSubTitle:
+      "In this article you’ll learn How React Developer can save time and effort by using design patterns. Its Provide a quick approach to find problems using tested and trusted solutions which is helps React Developers create maintainable, scalable and efficient application. in this article. I will explain React Design patterns and explain how they might improve the development of React application",
     readTime: "6 mins read",
     likesCount: 5,
     commentsCount: 0,
@@ -83,7 +87,8 @@ export const blogs = [
   {
     id: 5,
     blogTitle: "Diving into Kubernetes: A Journey of Immersive Learning 🌐",
-    blogSubTitle: "How Hashnode calculates feeds on scale and serverless",
+    blogSubTitle:
+      "Embarking on the quest to understand Kubernetes, I stumbled upon a treasure trove of knowledge curated by Aman Pathak. These comprehensive documents not only simplified the complexities of Kubernetes but also transformed the learning experience into a thrilling adventure. 🚀",
     readTime: "6 mins read",
     likesCount: 10,
     commentsCount: 0,
