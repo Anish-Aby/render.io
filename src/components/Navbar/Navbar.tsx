@@ -9,7 +9,6 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
 } from "../ui/navigation-menu";
 
 export default function Navbar() {
@@ -42,19 +41,13 @@ export default function Navbar() {
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList className="lg:gap-10 xl:gap-16">
             <NavigationMenuItem>
-              <Link to="/docs">
-                <NavigationMenuLink>Following</NavigationMenuLink>
-              </Link>
+              <Link to={"/following"}>Following</Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/docs">
-                <NavigationMenuLink>Featured</NavigationMenuLink>
-              </Link>
+              <Link to="/featured">Featured</Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/docs">
-                <NavigationMenuLink>Following</NavigationMenuLink>
-              </Link>
+              <Link to="/update-logs">Update Logs</Link>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
@@ -74,7 +67,7 @@ export default function Navbar() {
             <Link to={"/signup"}>Signup</Link>
           </Button>
           <Button
-            className="font-p2 font-semibold rounded-full bg-greenAccent text-black md:text-lg md:font-normal md:font-p2"
+            className="font-p2 font-semibold rounded-full bg-greenAccent text-black md:text-lg md:font-normal md:font-p2 hover:text-primary-foreground"
             asChild
           >
             <Link to={"/login"}>Login</Link>
