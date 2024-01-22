@@ -9,6 +9,7 @@ import Signup from "./pages/Signup.tsx";
 import BlogPage from "./components/BlogPage/BlogPage.tsx";
 import { Toaster } from "./components/ui/sonner.tsx";
 import BlogDraft from "./pages/BlogDraft.tsx";
+import UserProfilePage from "./pages/UserProfilePage.tsx";
 // import React from "react";
 
 const router = createBrowserRouter([
@@ -26,12 +27,16 @@ const router = createBrowserRouter([
     element: <Signup />,
   },
   {
-    path: "/blog/:blogId",
+    path: "/blogs/:blogId",
     element: <BlogPage />,
   },
   {
     path: "/draft",
     element: <BlogDraft />,
+  },
+  {
+    path: "/:userId",
+    element: <UserProfilePage />,
   },
 ]);
 

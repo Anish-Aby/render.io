@@ -18,17 +18,24 @@ type BlogCardProps = {
     blogImage: string;
     blogContent: number;
   };
+  isUserFeed?: boolean;
 };
 
-export default function BlogCard({ blog }: BlogCardProps) {
+export default function BlogCard({ blog, isUserFeed = false }: BlogCardProps) {
   return (
     <article className="w-full border-b border-border py-4 gap-4 flex flex-col font-p1 lg:pb-6">
-      <div className="w-full grid grid-cols-3 grid-rows-1 ">
+      <div
+        className={`w-full grid grid-cols-3 grid-rows-1 ${
+          isUserFeed && "hidden"
+        }`}
+      >
         <div className="flex gap-4 col-span-2">
-          <Avatar className="h-14 aspect-square w-14">
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
+          <Link to={`/${blog.author}`}>
+            <Avatar className="h-14 aspect-square w-14">
+              <AvatarImage src="https://github.com/shadcn.png" />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+          </Link>
           <div className="font-medium flex flex-col justify-around mr-5">
             <h3 className="text-md">{blog.author}</h3>
             <p className="opacity-50 text-sm">{blog.date}</p>
@@ -44,7 +51,7 @@ export default function BlogCard({ blog }: BlogCardProps) {
           </Badge>
         )}
       </div>
-      <Link to={`/blog/${blog.id}`}>
+      <Link to={`/blogs/${blog.id}`}>
         <div className="flex flex-col gap-4 md:flex-row md:justify-between">
           <div className="md:w-2/3">
             <h2 className="text-lg font-p2 md:text-xl md:font-p3">
@@ -56,7 +63,7 @@ export default function BlogCard({ blog }: BlogCardProps) {
           </div>
           <div className="w-full aspect-video h-40 rounded-xl font-primary md:w-1/4 md:h-1/3">
             <img
-              className="flex w-full h-full rounded-xl object-cover "
+              className="flex w-full h-full rounded-xl object-cover md:w-[156px] md:h-[87.75px]"
               src={blog.blogImage}
             />
           </div>
