@@ -1,6 +1,18 @@
-import { UserPlus } from "lucide-react";
+import {
+  AlertCircle,
+  Ban,
+  MoreHorizontal,
+  Share2,
+  UserPlus,
+} from "lucide-react";
 import { Button } from "../ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
 
 type UserProfileCTAProps = {
   isAside?: boolean;
@@ -24,9 +36,27 @@ export default function UserProfileCTA({
           <p>Follow</p>
           <UserPlus className="w-4" />
         </Button>
-        <Button className="rounded-full" variant={"secondary"}>
-          ...
-        </Button>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button className="rounded-full" variant={"outline"}>
+              <MoreHorizontal />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuItem className="gap-2">
+              <Share2 className="w-5" />
+              <p>Share profile</p>
+            </DropdownMenuItem>
+            <DropdownMenuItem className="gap-2">
+              <Ban className="w-5" />
+              <p>Block user</p>
+            </DropdownMenuItem>
+            <DropdownMenuItem className="gap-2">
+              <AlertCircle className="w-5" />
+              <p>Report user</p>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
       <div className="flex flex-col gap-1">
         <p className="text-2xl font-p2">Anish Aby</p>

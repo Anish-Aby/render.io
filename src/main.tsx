@@ -10,6 +10,7 @@ import BlogPage from "./components/BlogPage/BlogPage.tsx";
 import { Toaster } from "./components/ui/sonner.tsx";
 import BlogDraft from "./pages/BlogDraft.tsx";
 import UserProfilePage from "./pages/UserProfilePage.tsx";
+import ScrollToTop from "./components/ScrollToTop.tsx";
 // import React from "react";
 
 const router = createBrowserRouter([
@@ -28,7 +29,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/blogs/:blogId",
-    element: <BlogPage />,
+    element: (
+      <ScrollToTop>
+        <BlogPage />
+      </ScrollToTop>
+    ),
   },
   {
     path: "/draft",
@@ -36,7 +41,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/:userId",
-    element: <UserProfilePage />,
+    element: (
+      <ScrollToTop>
+        <UserProfilePage />
+      </ScrollToTop>
+    ),
   },
 ]);
 

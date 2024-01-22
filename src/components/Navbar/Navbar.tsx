@@ -40,7 +40,7 @@ export default function Navbar() {
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList className="lg:gap-10 xl:gap-16">
             <NavigationMenuItem>
-              <Button className="rounded-full" variant={"outline"} asChild>
+              <Button className="rounded-full" variant={"ghost"} asChild>
                 <Link to={"/featured"}>Featured</Link>
               </Button>
             </NavigationMenuItem>
