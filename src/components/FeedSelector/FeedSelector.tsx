@@ -17,7 +17,7 @@ export default function FeedSelector({
   return (
     <div className="mt-10 flex gap-2 font-p1">
       <Button
-        className="rounded-full text-base flex gap-2"
+        className="rounded-full text-base flex gap-2 duration-300"
         variant={currentFeed === "featured" ? "default" : "ghost"}
         onClick={() => handleOptionClick("featured")}
       >
@@ -27,7 +27,7 @@ export default function FeedSelector({
       <Button
         variant={currentFeed === "following" ? "default" : "ghost"}
         onClick={() => handleOptionClick("following")}
-        className="rounded-full text-base flex gap-2"
+        className="rounded-full text-base flex gap-2 duration-300"
       >
         <Users className="w-full h-4 hidden md:flex" />
         <p>Following</p>

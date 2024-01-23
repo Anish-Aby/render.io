@@ -1,10 +1,9 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Gem, Heart, MessageCircle, MoreHorizontal } from "lucide-react";
+import { Gem } from "lucide-react";
 import { Badge } from "../ui/badge";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
 import BookMarkButton from "../CTAButtons/BookMarkButton/BookMarkButton";
-import LikeButton from "../CTAButtons/LikeButton/LikeButton";
 import MoreOptionsButton from "../CTAButtons/MoreOptionsButton/MoreOptionsButton";
 
 type BlogCardProps = {
