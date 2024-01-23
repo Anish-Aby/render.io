@@ -46,7 +46,7 @@ export default function BlogPage() {
             <h3 className="text-xl">{blog.author}</h3>
             <p className="opacity-50 text-lg">{blog.date}</p>
           </div>
-          <div className="w-full text-xl font-primary leading-8 mb-5 prose dark:prose-invert prose-img:w-full prose-img:max-w-screen-md prose-headings:font-normal prose-headings:font-p2">
+          <div className="w-full text-xl break-words font-primary leading-8 mb-5 prose dark:prose-invert prose-img:w-full prose-img:max-w-screen-md prose-headings:font-normal prose-headings:font-p2">
             <Blocks data={blogBody} />
           </div>
         </div>

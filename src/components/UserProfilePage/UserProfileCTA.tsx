@@ -43,15 +43,15 @@ export default function UserProfileCTA({
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            <DropdownMenuItem className="gap-2">
+            <DropdownMenuItem className="gap-2 my-3">
               <Share2 className="w-5" />
               <p>Share profile</p>
             </DropdownMenuItem>
-            <DropdownMenuItem className="gap-2">
+            <DropdownMenuItem className="gap-2 my-3">
               <Ban className="w-5" />
               <p>Block user</p>
             </DropdownMenuItem>
-            <DropdownMenuItem className="gap-2">
+            <DropdownMenuItem className="gap-2 my-3">
               <AlertCircle className="w-5" />
               <p>Report user</p>
             </DropdownMenuItem>

@@ -1,7 +1,11 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Bookmark, Gem, Heart, MessageCircle } from "lucide-react";
+import { Gem, Heart, MessageCircle, MoreHorizontal } from "lucide-react";
 import { Badge } from "../ui/badge";
 import { Link } from "react-router-dom";
+import { Button } from "../ui/button";
+import BookMarkButton from "../CTAButtons/BookMarkButton/BookMarkButton";
+import LikeButton from "../CTAButtons/LikeButton/LikeButton";
+import MoreOptionsButton from "../CTAButtons/MoreOptionsButton/MoreOptionsButton";
 
 type BlogCardProps = {
   blog: {
@@ -37,7 +41,9 @@ export default function BlogCard({ blog, isUserFeed = false }: BlogCardProps) {
             </Avatar>
           </Link>
           <div className="font-medium flex flex-col justify-around mr-5">
-            <h3 className="text-md">{blog.author}</h3>
+            <Link to={`/${blog.author}`}>
+              <h3 className="text-md">{blog.author}</h3>
+            </Link>
             <p className="opacity-50 text-sm">{blog.date}</p>
           </div>
         </div>
@@ -71,22 +77,25 @@ export default function BlogCard({ blog, isUserFeed = false }: BlogCardProps) {
       </Link>
       <div className="grid grid-rows-1 grid-cols-2">
         <div className="flex gap-5">
-          <div className="flex gap-2 justify-self-start opacity-70 items-center justify-center">
-            <Heart className="text-foreground w-full" />
+          <Button variant={"secondary"}>{blog.category}</Button>
+          {/* <div className="flex justify-self-start opacity-70 items-center justify-center">
+            <LikeButton />
             <p className="flex justify-center text-base font-primary">
               {blog.likesCount}
             </p>
           </div>
-          <div className="flex gap-2 justify-self-center opacity-70 font-p1">
-            <MessageCircle />
+          <div className="flex justify-self-center opacity-70 font-p1">
+            <Button variant={"ghost"}>
+              <MessageCircle />
+            </Button>
             <p className="flex justify-center items-center text-base font-primary">
               {blog.commentsCount}
             </p>
-          </div>
+          </div> */}
         </div>
-        <div className="flex w-full justify-end gap-5">
-          <Badge variant="secondary">{blog.category}</Badge>
-          <Bookmark className="justify-self-end opacity-70" />
+        <div className="flex w-full justify-end gap-3">
+          <BookMarkButton />
+          <MoreOptionsButton />
         </div>
       </div>
     </article>

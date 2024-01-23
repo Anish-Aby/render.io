@@ -60,8 +60,11 @@ export default function Navbar() {
           <Button
             className="font-p1 rounded-full hidden md:flex md:text-2xl md:font-normal"
             variant={"ghost"}
+            asChild
           >
-            <IoIosSearch />
+            <Link to="/search">
+              <IoIosSearch />
+            </Link>
           </Button>
           <ModeToggle />
           <Button

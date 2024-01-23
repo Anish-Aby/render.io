@@ -11,6 +11,7 @@ import { Toaster } from "./components/ui/sonner.tsx";
 import BlogDraft from "./pages/BlogDraft.tsx";
 import UserProfilePage from "./pages/UserProfilePage.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
+import Search from "./pages/Search.tsx";
 // import React from "react";
 
 const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
   {
     path: "/draft",
     element: <BlogDraft />,
+  },
+  {
+    path: "/search",
+    element: <Search />,
   },
   {
     path: "/:userId",
