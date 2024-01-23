@@ -27,6 +27,8 @@ module.exports = {
       colors: {
         border: "hsl(var(--border))",
         nav: "hsl(var(--nav-background))",
+        like: "hsl(var(--like-color))",
+        bookmark: "hsl(var(--bookmark-color))",
         greenAccent: "hsl(var(--green-accent))",
         pinkAccent: "hsl(var(--pink-accent))",
         purpleAccent: "hsl(var(--purple-accent))",

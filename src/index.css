@@ -43,6 +43,9 @@
         --background: 0 0% 100%;
         --foreground: 240 10% 3.9%;
 
+        --like-color: 355 100% 59%;
+        --bookmark-color: 48 96% 53%;
+
         --green-accent: 70 77% 64%;
         --pink-accent: 306 97% 61%;
         --purple-accent: 250 100% 69%;
