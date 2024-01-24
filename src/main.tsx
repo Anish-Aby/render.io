@@ -1,32 +1,37 @@
 import ReactDOM from "react-dom/client";
-import App from "./pages/App.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import Login from "./pages/Login.tsx";
 import { ThemeProvider } from "./components/theme-provider.tsx";
-import NotFound from "./components/NotFound/NotFound.tsx";
-import Signup from "./pages/Signup.tsx";
 import BlogPage from "./components/BlogPage/BlogPage.tsx";
 import { Toaster } from "./components/ui/sonner.tsx";
 import BlogDraft from "./pages/BlogDraft.tsx";
 import UserProfilePage from "./pages/UserProfilePage.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
-import Search from "./pages/Search.tsx";
+import PageNotFound from "./pages/PageNotFound.tsx";
 // import React from "react";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
-    errorElement: <NotFound />,
+    errorElement: <PageNotFound />,
+    async lazy() {
+      const App = await import("./pages/App.tsx");
+      return { Component: App.default };
+    },
   },
   {
     path: "/login",
-    element: <Login />,
+    async lazy() {
+      const Login = await import("./pages/Login.tsx");
+      return { Component: Login.default };
+    },
   },
   {
     path: "/signup",
-    element: <Signup />,
+    async lazy() {
+      const Signup = await import("./pages/Signup.tsx");
+      return { Component: Signup.default };
+    },
   },
   {
     path: "/blogs/:blogId",
@@ -42,7 +47,10 @@ const router = createBrowserRouter([
   },
   {
     path: "/search",
-    element: <Search />,
+    async lazy() {
+      const Search = await import("./pages/Search.tsx");
+      return { Component: Search.default };
+    },
   },
   {
     path: "/:userId",
