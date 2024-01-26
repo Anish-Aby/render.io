@@ -1,1 +1,7 @@
 /*  /index.html  200
+
+[[redirects]]
+  from = "/blogs/"
+  to = "https://render-api-3rxl.onrender.com/api/v1/:splat"
+  status = 200
+  force = true # COMMENT: ensure that we always redirect
