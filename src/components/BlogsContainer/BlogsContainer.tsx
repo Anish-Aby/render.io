@@ -12,8 +12,10 @@ export default function BlogsContainer() {
   });
 
   async function fetchFeedBlogs() {
-    const baseURL = import.meta.env.VITE_API_URI;
-    return await axios.get(`${baseURL}/blogs/`);
+    // const baseURL = import.meta.env.VITE_API_URI;
+    return await axios.get(
+      `https://render-api-3rxl.onrender.com/api/v1/blogs/`
+    );
   }
 
   if (status === "pending") {
