@@ -15,7 +15,9 @@ import BookMarkButton from "../CTAButtons/BookMarkButton/BookMarkButton";
 
 export default function BlogCTAMenu() {
   const [isLiked, setIsLiked] = useState(false);
-  function handleCopyLinkClick() {
+
+  async function handleCopyLinkClick() {
+    await navigator.clipboard.writeText(location.href);
     toast.success("Link copied!");
   }
 
