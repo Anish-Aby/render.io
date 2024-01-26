@@ -11,8 +11,8 @@ export default function UserProfileBlogsContainer() {
   });
 
   async function fetchFeedBlogs() {
-    const baseURL = import.meta.env.VITE_API_URI;
-    return await axios.get(`${baseURL}/blogs/`);
+    // const baseURL = import.meta.env.VITE_API_URI;
+    return await axios.get(`/blogs/`);
   }
 
   if (status === "pending") {
