@@ -4,8 +4,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "./components/theme-provider.tsx";
 import { Toaster } from "./components/ui/sonner.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 import "./index.css";
+import Navbar from "./components/Navbar/Navbar.tsx";
 // import App from "./pages/App.tsx";
 // import Login from "./pages/Login.tsx";
 // import Signup from "./pages/Signup.tsx";
@@ -32,22 +33,36 @@ const router = createBrowserRouter([
   {
     path: "/",
     errorElement: <PageNotFound />,
-    element: <App />,
+    element: (
+      <Suspense fallback={<Navbar />}>
+        <App />
+      </Suspense>
+    ),
   },
   {
     path: "/login",
-    element: <Login />,
+    element: (
+      <Suspense fallback={<Navbar />}>
+        <Login />
+      </Suspense>
+    ),
   },
   {
     path: "/signup",
-    element: <Signup />,
+    element: (
+      <Suspense fallback={<Navbar />}>
+        <Signup />
+      </Suspense>
+    ),
   },
   {
     path: "/blogs/:blogId",
     element: (
-      <ScrollToTop>
-        <BlogPage />
-      </ScrollToTop>
+      <Suspense fallback={<Navbar />}>
+        <ScrollToTop>
+          <BlogPage />
+        </ScrollToTop>
+      </Suspense>
     ),
   },
   {
@@ -56,14 +71,20 @@ const router = createBrowserRouter([
   },
   {
     path: "/search",
-    element: <Search />,
+    element: (
+      <Suspense fallback={<Navbar />}>
+        <Search />
+      </Suspense>
+    ),
   },
   {
     path: "/:userId",
     element: (
-      <ScrollToTop>
-        <UserProfilePage />
-      </ScrollToTop>
+      <Suspense fallback={<Navbar />}>
+        <ScrollToTop>
+          <UserProfilePage />
+        </ScrollToTop>
+      </Suspense>
     ),
   },
 ]);
