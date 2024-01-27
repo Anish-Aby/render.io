@@ -42,7 +42,7 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: (
-      <Suspense fallback={<Navbar />}>
+      <Suspense fallback={<></>}>
         <Login />
       </Suspense>
     ),
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: (
-      <Suspense fallback={<Navbar />}>
+      <Suspense fallback={<></>}>
         <Signup />
       </Suspense>
     ),
