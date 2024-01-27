@@ -1,38 +1,46 @@
+/* eslint-disable react-refresh/only-export-components */
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./index.css";
 import { ThemeProvider } from "./components/theme-provider.tsx";
-import BlogPage from "./components/BlogPage/BlogPage.tsx";
 import { Toaster } from "./components/ui/sonner.tsx";
-import BlogDraft from "./pages/BlogDraft.tsx";
-import UserProfilePage from "./pages/UserProfilePage.tsx";
-import ScrollToTop from "./components/ScrollToTop.tsx";
-import PageNotFound from "./pages/PageNotFound.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { lazy } from "react";
+import "./index.css";
+// import App from "./pages/App.tsx";
+// import Login from "./pages/Login.tsx";
+// import Signup from "./pages/Signup.tsx";
+// import Search from "./pages/Search.tsx";
+// import BlogPage from "./components/BlogPage/BlogPage.tsx";
+// import UserProfilePage from "./pages/UserProfilePage.tsx";
+// import ScrollToTop from "./components/ScrollToTop.tsx";
+// import BlogDraft from "./pages/BlogDraft.tsx";
+// import PageNotFound from "./pages/PageNotFound.tsx";
+
+const App = lazy(() => import("./pages/App.tsx"));
+const Login = lazy(() => import("./pages/Login.tsx"));
+const Signup = lazy(() => import("./pages/Signup.tsx"));
+const Search = lazy(() => import("./pages/Search.tsx"));
+const BlogPage = lazy(() => import("./components/BlogPage/BlogPage.tsx"));
+const UserProfilePage = lazy(() => import("./pages/UserProfilePage.tsx"));
+const ScrollToTop = lazy(() => import("./components/ScrollToTop.tsx"));
+const BlogDraft = lazy(() => import("./pages/BlogDraft.tsx"));
+const PageNotFound = lazy(() => import("./pages/PageNotFound.tsx"));
+
 // import React from "react";
 
 const router = createBrowserRouter([
   {
     path: "/",
     errorElement: <PageNotFound />,
-    async lazy() {
-      const App = await import("./pages/App.tsx");
-      return { Component: App.default };
-    },
+    element: <App />,
   },
   {
     path: "/login",
-    async lazy() {
-      const Login = await import("./pages/Login.tsx");
-      return { Component: Login.default };
-    },
+    element: <Login />,
   },
   {
     path: "/signup",
-    async lazy() {
-      const Signup = await import("./pages/Signup.tsx");
-      return { Component: Signup.default };
-    },
+    element: <Signup />,
   },
   {
     path: "/blogs/:blogId",
@@ -48,10 +56,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/search",
-    async lazy() {
-      const Search = await import("./pages/Search.tsx");
-      return { Component: Search.default };
-    },
+    element: <Search />,
   },
   {
     path: "/:userId",
@@ -64,6 +69,7 @@ const router = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
+
 const queryClient = new QueryClient();
 
 root.render(

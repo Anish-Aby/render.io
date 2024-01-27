@@ -12,7 +12,6 @@ export default function BookMarkButton() {
   const [isBookmarked, setIsBookmarked] = useState(false);
 
   function handleBookmarkClick() {
-    console.log(isBookmarked);
     setIsBookmarked((curBookmark) => {
       return !curBookmark;
     });
@@ -28,7 +27,7 @@ export default function BookMarkButton() {
             onClick={handleBookmarkClick}
           >
             <Bookmark
-              className={`justify-self-end ease-in-out duration-300 ${
+              className={`justify-self-end ease-in-out ${
                 isBookmarked ? "fill-bookmark stroke-bookmark" : ""
               }`}
             />

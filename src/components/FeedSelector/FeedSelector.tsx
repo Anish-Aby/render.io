@@ -1,15 +1,14 @@
 import { Gem, Users } from "lucide-react";
 import { Button } from "../ui/button";
+import { useState } from "react";
 
-type FeedSelectorProps = {
-  currentFeed: string;
-  setCurrentFeed: (option: string) => void;
-};
+// type FeedSelectorProps = {
+//   currentFeed: string;
+//   setCurrentFeed: (option: string) => void;
+// };
 
-export default function FeedSelector({
-  currentFeed,
-  setCurrentFeed,
-}: FeedSelectorProps) {
+export default function FeedSelector() {
+  const [currentFeed, setCurrentFeed] = useState("featured");
   function handleOptionClick(option: string) {
     setCurrentFeed(option);
   }
