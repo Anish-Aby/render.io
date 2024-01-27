@@ -8,6 +8,7 @@ import BlogDraft from "./pages/BlogDraft.tsx";
 import UserProfilePage from "./pages/UserProfilePage.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 import PageNotFound from "./pages/PageNotFound.tsx";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // import React from "react";
 
 const router = createBrowserRouter([
@@ -63,11 +64,15 @@ const router = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
+const queryClient = new QueryClient();
+
 root.render(
   // <React.StrictMode>
-  <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-    <Toaster />
-    <RouterProvider router={router} />
-  </ThemeProvider>
+  <QueryClientProvider client={queryClient}>
+    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+      <Toaster />
+      <RouterProvider router={router} />
+    </ThemeProvider>
+  </QueryClientProvider>
   // </React.StrictMode>
 );

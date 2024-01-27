@@ -13,7 +13,12 @@ import { Button } from "../ui/button";
 import { useState } from "react";
 import BookMarkButton from "../CTAButtons/BookMarkButton/BookMarkButton";
 
-export default function BlogCTAMenu() {
+type BlogCTAMenuProps = {
+  likes: number;
+  comments: number;
+};
+
+export default function BlogCTAMenu({ likes, comments }: BlogCTAMenuProps) {
   const [isLiked, setIsLiked] = useState(false);
 
   async function handleCopyLinkClick() {
@@ -30,12 +35,20 @@ export default function BlogCTAMenu() {
   return (
     <div className="sticky left-0 w-full flex justify-center bottom-5 mb-5 lg:bottom-10">
       <div className="w-4/5 max-w-lg flex bg-background border-border border rounded-full p-4 justify-around text-foreground">
-        <Button variant={"ghost"} onClick={handleLikeClick}>
-          <Heart className={isLiked ? "fill-like stroke-like" : "fill-none"} />
-        </Button>
-        <Button variant={"ghost"}>
-          <MessageCircle />
-        </Button>
+        <div className="flex items-center gap-2">
+          <Button variant={"ghost"} onClick={handleLikeClick} className="p-2">
+            <Heart
+              className={isLiked ? "fill-like stroke-like" : "fill-none"}
+            />
+          </Button>
+          <p>{likes}</p>
+        </div>
+        <div className="flex items-center gap-2">
+          <Button variant={"ghost"} className="p-2">
+            <MessageCircle />
+          </Button>
+          <p>{comments}</p>
+        </div>
         <BookMarkButton />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
