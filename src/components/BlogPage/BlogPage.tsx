@@ -37,7 +37,7 @@ export default function BlogPage() {
   }
 
   if (status === "success") {
-    const blog = data.data.blog;
+    const blog = data.data.data.blog;
     return (
       <div className="flex flex-col items-center">
         <Navbar />
