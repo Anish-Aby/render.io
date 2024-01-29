@@ -13,7 +13,7 @@ import Navbar from "./components/Navbar/Navbar.tsx";
 // import Search from "./pages/Search.tsx";
 // import BlogPage from "./components/BlogPage/BlogPage.tsx";
 // import UserProfilePage from "./pages/UserProfilePage.tsx";
-// import ScrollToTop from "./components/ScrollToTop.tsx";
+import ScrollToTop from "./components/ScrollToTop.tsx";
 // import BlogDraft from "./pages/BlogDraft.tsx";
 // import PageNotFound from "./pages/PageNotFound.tsx";
 
@@ -23,7 +23,7 @@ const Signup = lazy(() => import("./pages/Signup.tsx"));
 const Search = lazy(() => import("./pages/Search.tsx"));
 const BlogPage = lazy(() => import("./components/BlogPage/BlogPage.tsx"));
 const UserProfilePage = lazy(() => import("./pages/UserProfilePage.tsx"));
-const ScrollToTop = lazy(() => import("./components/ScrollToTop.tsx"));
+// const ScrollToTop = lazy(() => import("./components/ScrollToTop.tsx"));
 const BlogDraft = lazy(() => import("./pages/BlogDraft.tsx"));
 const PageNotFound = lazy(() => import("./pages/PageNotFound.tsx"));
 
