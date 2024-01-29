@@ -12,7 +12,7 @@ import BlogLoadingComponent from "../BlogLoadingComponent/BlogLoadingComponent";
 export default function BlogPage() {
   const { blogId } = useParams();
 
-  const apiURL = `https://render-api-3rxl.onrender.com/api/v1/blogs/${blogId}`;
+  const apiURL = `https://render-api.netlify.app/api/blogs/${blogId}`;
 
   async function fetchBlog() {
     return await axios.get(apiURL);

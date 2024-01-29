@@ -12,9 +12,7 @@ export default function BlogsContainer() {
   });
 
   async function fetchFeedBlogs() {
-    return await axios.get(
-      `https://render-api-3rxl.onrender.com/api/v1/blogs/`
-    );
+    return await axios.get(`https://render-api.netlify.app/api/blogs`);
   }
 
   if (status === "pending") {
