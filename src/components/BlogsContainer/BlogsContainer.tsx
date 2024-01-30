@@ -26,8 +26,6 @@ export default function BlogsContainer() {
   } else if (status === "error") {
     return <p className="mt-10">There was an error: {error.message}</p>;
   } else if (status === "success") {
-    console.log("container got called.");
-
     const blogs = data.data.data.blogs;
     return (
       <div className="w-full flex flex-col gap-4 mt-10">

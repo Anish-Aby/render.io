@@ -7,15 +7,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { lazy, Suspense } from "react";
 import "./index.css";
 import Navbar from "./components/Navbar/Navbar.tsx";
-// import App from "./pages/App.tsx";
-// import Login from "./pages/Login.tsx";
-// import Signup from "./pages/Signup.tsx";
-// import Search from "./pages/Search.tsx";
-// import BlogPage from "./components/BlogPage/BlogPage.tsx";
-// import UserProfilePage from "./pages/UserProfilePage.tsx";
+
 import ScrollToTop from "./components/ScrollToTop.tsx";
-// import BlogDraft from "./pages/BlogDraft.tsx";
-// import PageNotFound from "./pages/PageNotFound.tsx";
 
 const App = lazy(() => import("./pages/App.tsx"));
 const Login = lazy(() => import("./pages/Login.tsx"));
