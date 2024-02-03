@@ -9,10 +9,14 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
 } from "../ui/navigation-menu";
+import { useUserInfo } from "@/hooks/useUserInfo";
+import { isEmpty } from "@/utils/checkUserObjectisEmpty";
 
 export default function Navbar() {
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const userInfo = useUserInfo();
+  const isUserInfoEmpty = isEmpty(userInfo);
 
   useEffect(() => {
     const controlNavbar = () => {
@@ -67,19 +71,25 @@ export default function Navbar() {
             </Link>
           </Button>
           <ModeToggle />
-          <Button
-            className="font-p1 rounded-full hidden md:flex md:text-lg md:font-normal"
-            variant={"ghost"}
-            asChild
-          >
-            <Link to={"/signup"}>Signup</Link>
-          </Button>
-          <Button
-            className="font-p2 font-semibold rounded-full bg-greenAccent text-black md:text-lg md:font-normal md:font-p2 hover:text-primary-foreground"
-            asChild
-          >
-            <Link to={"/login"}>Login</Link>
-          </Button>
+          {isUserInfoEmpty ? (
+            <>
+              <Button
+                className="font-p1 rounded-full hidden md:flex md:text-lg md:font-normal"
+                variant={"ghost"}
+                asChild
+              >
+                <Link to={"/signup"}>Signup</Link>
+              </Button>
+              <Button
+                className="font-p2 font-semibold rounded-full bg-greenAccent text-black md:text-lg md:font-normal md:font-p2 hover:text-primary-foreground"
+                asChild
+              >
+                <Link to={"/login"}>Login</Link>
+              </Button>
+            </>
+          ) : (
+            <p>Logged in</p>
+          )}
         </div>
       </div>
     </nav>

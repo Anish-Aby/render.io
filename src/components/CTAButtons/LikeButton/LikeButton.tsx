@@ -6,14 +6,37 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "../../ui/tooltip";
+import { useUserInfo } from "@/hooks/useUserInfo";
+import { isEmpty } from "@/utils/checkUserObjectisEmpty";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function LikeButton() {
+  const [isLiked, setIsLiked] = useState(false);
+  const navigate = useNavigate();
+
+  const userInfo = useUserInfo();
+  const isUserInfoEmpty = isEmpty(userInfo);
+
+  function handleLikeClick() {
+    if (isUserInfoEmpty) {
+      navigate("/login");
+      return;
+    }
+
+    setIsLiked((curIsLiked) => {
+      return !curIsLiked;
+    });
+  }
+
   return (
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
-          <Button className="px-0 mr-4" variant={"ghost"}>
-            <Heart className="text-foreground w-full" />
+          <Button variant={"ghost"} onClick={handleLikeClick} className="p-2">
+            <Heart
+              className={isLiked ? "fill-like stroke-like" : "fill-none"}
+            />
           </Button>
         </TooltipTrigger>
         <TooltipContent>

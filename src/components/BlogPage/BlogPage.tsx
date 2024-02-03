@@ -41,7 +41,7 @@ export default function BlogPage() {
     return (
       <div className="flex flex-col items-center">
         <Navbar />
-        <article className="flex flex-col items-center font-p1 max-w-4xl justify-center w-full mb-10">
+        <article className="flex flex-col items-center font-p1 lg:max-w-3xl xl:max-w-4xl justify-center w-full mb-10">
           <div className="w-11/12 min-h-svh mb-10">
             <div className="my-5">
               <img src={blog.image} className="rounded-lg w-full" />
@@ -55,7 +55,7 @@ export default function BlogPage() {
               <h3 className="text-xl">{blog.authorId}</h3>
               <p className="opacity-50 text-lg">{blog.date}</p>
             </div>
-            <div className="w-full text-xl break-words font-primary leading-8 mb-5 prose dark:prose-invert prose-img:w-full prose-img:max-w-screen-md prose-headings:font-normal prose-headings:font-p2">
+            <div className="w-full text-xl lg:text-lg xl:text-xl break-words font-primary leading-8 mb-5 prose dark:prose-invert prose-img:w-full prose-img:max-w-screen-md prose-headings:font-normal prose-headings:font-p2">
               <Blocks data={blog.body.content} />
             </div>
           </div>

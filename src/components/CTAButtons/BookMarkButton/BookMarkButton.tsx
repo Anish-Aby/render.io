@@ -7,11 +7,23 @@ import {
   TooltipTrigger,
 } from "../../ui/tooltip";
 import { useState } from "react";
+import { useUserInfo } from "@/hooks/useUserInfo";
+import { useNavigate } from "react-router-dom";
+import { isEmpty } from "@/utils/checkUserObjectisEmpty";
 
 export default function BookMarkButton() {
   const [isBookmarked, setIsBookmarked] = useState(false);
+  const userInfo = useUserInfo();
+  const navigate = useNavigate();
+
+  const isUserInfoEmpty = isEmpty(userInfo);
 
   function handleBookmarkClick() {
+    if (isUserInfoEmpty) {
+      navigate("/login");
+      return;
+    }
+
     setIsBookmarked((curBookmark) => {
       return !curBookmark;
     });

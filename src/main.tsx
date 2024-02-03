@@ -5,10 +5,13 @@ import { ThemeProvider } from "./components/theme-provider.tsx";
 import { Toaster } from "./components/ui/sonner.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { lazy, Suspense } from "react";
+import { store } from "./store.tsx";
+import { Provider } from "react-redux";
 import "./index.css";
-import Navbar from "./components/Navbar/Navbar.tsx";
 
+import Navbar from "./components/Navbar/Navbar.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
+import RequireAuth from "./components/RequireAuth/RequireAuth.tsx";
 
 const App = lazy(() => import("./pages/App.tsx"));
 const Login = lazy(() => import("./pages/Login.tsx"));
@@ -16,7 +19,6 @@ const Signup = lazy(() => import("./pages/Signup.tsx"));
 const Search = lazy(() => import("./pages/Search.tsx"));
 const BlogPage = lazy(() => import("./components/BlogPage/BlogPage.tsx"));
 const UserProfilePage = lazy(() => import("./pages/UserProfilePage.tsx"));
-// const ScrollToTop = lazy(() => import("./components/ScrollToTop.tsx"));
 const BlogDraft = lazy(() => import("./pages/BlogDraft.tsx"));
 const PageNotFound = lazy(() => import("./pages/PageNotFound.tsx"));
 
@@ -60,7 +62,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/draft",
-    element: <BlogDraft />,
+    element: (
+      <RequireAuth>
+        <BlogDraft />
+      </RequireAuth>
+    ),
   },
   {
     path: "/search",
@@ -87,12 +93,12 @@ const root = ReactDOM.createRoot(document.getElementById("root")!);
 const queryClient = new QueryClient();
 
 root.render(
-  // <React.StrictMode>
   <QueryClientProvider client={queryClient}>
     <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
       <Toaster />
-      <RouterProvider router={router} />
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
     </ThemeProvider>
   </QueryClientProvider>
-  // </React.StrictMode>
 );

@@ -78,20 +78,6 @@ export default function BlogCard({ blog, isUserFeed = false }: BlogCardProps) {
       <div className="grid grid-rows-1 grid-cols-2">
         <div className="flex gap-5">
           <Button variant={"secondary"}>{blog.category}</Button>
-          {/* <div className="flex justify-self-start opacity-70 items-center justify-center">
-            <LikeButton />
-            <p className="flex justify-center text-base font-primary">
-              {blog.likesCount}
-            </p>
-          </div>
-          <div className="flex justify-self-center opacity-70 font-p1">
-            <Button variant={"ghost"}>
-              <MessageCircle />
-            </Button>
-            <p className="flex justify-center items-center text-base font-primary">
-              {blog.commentsCount}
-            </p>
-          </div> */}
         </div>
         <div className="flex w-full justify-end gap-3">
           <BookMarkButton />

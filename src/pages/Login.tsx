@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import {
   Form,
@@ -25,6 +25,9 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { login } from "@/features/auth/authSlice";
+import { useUserInfo } from "@/hooks/useUserInfo";
 
 const formSchema = z.object({
   password: z
@@ -38,6 +41,9 @@ const formSchema = z.object({
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const currentUser = useUserInfo();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -60,9 +66,14 @@ export default function Login() {
       );
 
       if (user.status === 200) {
+        const userInfo = user.data.userInfo;
+        const userToken = user.data.token;
+        dispatch(login({ userInfo, userToken }));
         toast.success("Logged in successfully");
+        navigate("/");
+        console.log(currentUser);
       }
-      console.log(user);
+      console.log(`This is from axios: ${user}`);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       const error = err.response.data.message;
