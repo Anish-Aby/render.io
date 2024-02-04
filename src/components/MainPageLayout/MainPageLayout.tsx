@@ -10,7 +10,7 @@ type MainPageLayoutProps = {
 
 export default function MainPageLayout({ children }: MainPageLayoutProps) {
   return (
-    <div className="w-full min-h-screen font-primary flex flex-col items-center mb-24">
+    <div className="w-full min-h-screen font-primary flex flex-col items-center">
       <GradientAccent />
       <Navbar />
       <div className="flex w-full justify-center lg:justify-end xl:justify-center">

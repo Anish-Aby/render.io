@@ -28,6 +28,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { login } from "@/features/auth/authSlice";
 import { useUserInfo } from "@/hooks/useUserInfo";
+import LoaderCircle from "@/components/LoaderCircle/LoaderCircle";
 
 const formSchema = z.object({
   password: z
@@ -170,12 +171,15 @@ export default function Login() {
                   type="submit"
                   className="rounded-full font-p2 text-lg p-6 bg-greenAccent text-black hover:text-primary-foreground md:my-5"
                 >
+                  <LoaderCircle
+                    isSubmitting={form.formState.isSubmitting && true}
+                  />
                   Login to Render
                 </Button>
               </form>
             </Form>
             <p className="underline text-base flex justify-center">
-              Forgot password?
+              <Link to={"/forgotPassword"}>Forgot password?</Link>
             </p>
           </CardContent>
           <CardFooter className="justify-center gap-1 md:pb-0">

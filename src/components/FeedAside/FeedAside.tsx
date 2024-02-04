@@ -9,7 +9,7 @@ type FeedAsideProps = {
 
 export default function FeedAside({ isUserFeed = false }: FeedAsideProps) {
   return (
-    <aside className="hidden border-l xl:w-1/4 max-w-sm lg:flex lg:w-1/3 justify-center font-p1">
+    <aside className="hidden border-l xl:w-1/4 max-w-sm lg:flex lg:w-1/4 justify-center font-p1 lg:mr-10 xl:mr-0">
       <div className="mt-10 w-4/5 flex flex-col gap-5">
         {isUserFeed ? (
           <UserProfileCTA isAside={true} />

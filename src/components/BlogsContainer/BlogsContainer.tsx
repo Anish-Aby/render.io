@@ -28,7 +28,7 @@ export default function BlogsContainer() {
   } else if (status === "success") {
     const blogs = data.data.data.blogs;
     return (
-      <div className="w-full flex flex-col gap-4 mt-10">
+      <div className="w-full flex flex-col gap-4 mt-10 mb-24">
         {data.data.results > 0 ? (
           blogs.map(
             (blog: {

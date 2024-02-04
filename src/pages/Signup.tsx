@@ -25,6 +25,7 @@ import {
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
+import LoaderCircle from "@/components/LoaderCircle/LoaderCircle";
 
 const usernameRequiredLength = 3;
 const passwordRequiredLength = 8;
@@ -205,6 +206,9 @@ export default function Signup() {
                   type="submit"
                   className="rounded-full font-p2 text-lg p-6 bg-greenAccent text-black hover:text-primary-foreground md:my-5"
                 >
+                  <LoaderCircle
+                    isSubmitting={form.formState.isSubmitting && true}
+                  />
                   Create account
                 </Button>
               </form>

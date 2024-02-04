@@ -20,6 +20,7 @@ const Search = lazy(() => import("./pages/Search.tsx"));
 const BlogPage = lazy(() => import("./components/BlogPage/BlogPage.tsx"));
 const UserProfilePage = lazy(() => import("./pages/UserProfilePage.tsx"));
 const BlogDraft = lazy(() => import("./pages/BlogDraft.tsx"));
+const ForgotPasswordPage = lazy(() => import("./pages/ForgotPasswordPage.tsx"));
 const PageNotFound = lazy(() => import("./pages/PageNotFound.tsx"));
 
 // import React from "react";
@@ -83,6 +84,14 @@ const router = createBrowserRouter([
         <ScrollToTop>
           <UserProfilePage />
         </ScrollToTop>
+      </Suspense>
+    ),
+  },
+  {
+    path: "/forgotPassword",
+    element: (
+      <Suspense fallback={<></>}>
+        <ForgotPasswordPage />
       </Suspense>
     ),
   },
