@@ -14,7 +14,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { z } from "zod";
 
@@ -26,6 +28,7 @@ const formSchema = z.object({
 });
 
 export default function ForgotPasswordPage() {
+  const [emailSent, setEmailSent] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -47,9 +50,10 @@ export default function ForgotPasswordPage() {
 
       if (user.status === 200) {
         toast.success("Email sent successfully");
+        setEmailSent(true);
       }
 
-      console.log(values);
+      console.log(JSON.stringify(values));
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
@@ -88,49 +92,70 @@ export default function ForgotPasswordPage() {
             </CardTitle>
           </CardHeader>
           <CardContent className="flex flex-col w-full h-full gap-5">
-            <h3 className="text-2xl font-p1">Forgot your password?</h3>
-            <p className="text-base">
-              Enter the email address associated with your account
-            </p>
-            <Form {...form}>
-              <form
-                onSubmit={form.handleSubmit(onSubmit)}
-                className="flex flex-col gap-5"
-              >
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-base">Email</FormLabel>
-                      <FormControl>
-                        <Input
-                          type="email"
-                          className="text-base p-6 rounded-xl md:shadow-none"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <p className="text-sm opacity-70">
+            {emailSent ? (
+              <>
+                <h3 className="text-2xl font-p1">Email has been sent!</h3>
+                <p className="text-base">
                   If your email exists in our database, you will receive a
                   password recovery link in a few minutes.
                 </p>
-
+                <p className="text-sm opacity-70">
+                  Please check your spam folder as well.
+                </p>
                 <Button
-                  disabled={form.formState.isSubmitting && true}
-                  type="submit"
-                  className="relative rounded-full font-p2 text-lg p-6 bg-greenAccent text-black hover:text-primary-foreground md:my-5"
+                  className="relative rounded-full font-p2 text-lg p-6 hover:text-primary-foreground md:my-5"
+                  asChild
                 >
-                  <LoaderCircle
-                    isSubmitting={form.formState.isSubmitting && true}
-                  />
-                  Send email
+                  <Link to={"/"}>Go back home</Link>
                 </Button>
-              </form>
-            </Form>
+              </>
+            ) : (
+              <>
+                <h3 className="text-2xl font-p1">Forgot your password?</h3>
+                <p className="text-base">
+                  Enter the email address associated with your account
+                </p>
+                <Form {...form}>
+                  <form
+                    onSubmit={form.handleSubmit(onSubmit)}
+                    className="flex flex-col gap-5"
+                  >
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-base">Email</FormLabel>
+                          <FormControl>
+                            <Input
+                              type="email"
+                              className="text-base p-6 rounded-xl md:shadow-none"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <p className="text-sm opacity-70">
+                      If your email exists in our database, you will receive a
+                      password recovery link in a few minutes.
+                    </p>
+
+                    <Button
+                      disabled={form.formState.isSubmitting && true}
+                      type="submit"
+                      className="relative rounded-full font-p2 text-lg p-6 bg-greenAccent text-black hover:text-primary-foreground md:my-5"
+                    >
+                      <LoaderCircle
+                        isSubmitting={form.formState.isSubmitting && true}
+                      />
+                      Send email
+                    </Button>
+                  </form>
+                </Form>
+              </>
+            )}
           </CardContent>
         </Card>
       </div>

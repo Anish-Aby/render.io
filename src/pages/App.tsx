@@ -2,8 +2,6 @@ import MainPageBlogContainer from "@/components/MainPageBlogContainer/MainPageBl
 import MainPageLayout from "@/components/MainPageLayout/MainPageLayout";
 
 export default function App() {
-  console.log(`🅡🅔🅝🅓🅔🅡.🅘🅞`);
-
   return (
     <MainPageLayout>
       <MainPageBlogContainer />

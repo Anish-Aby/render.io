@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -67,6 +67,7 @@ const formSchema = z.object({
 
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -90,9 +91,9 @@ export default function Signup() {
       );
 
       if (user.status === 201) {
+        navigate("/");
         toast.success("Account successfully created");
       }
-      console.log(user);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       const error = err.response.data.message;
@@ -102,7 +103,7 @@ export default function Signup() {
 
   return (
     <div className="flex w-full min-h-svh h-full justify-center md:justify-start md:min-h-svh">
-      <div className="w-2/6 max-w-md min-h-svh h-full hidden md:flex bg-none border-none md:min-w-64 md:w-2/6 md:mr-14 lg:mr-15 lg:w-1/3 xl:mr-20 relative">
+      <div className="w-2/6 max-w-md min-h-svh max-h-svh h-full hidden md:flex bg-none border-none md:min-w-64 md:w-2/6 md:mr-14 lg:mr-15 lg:w-1/3 xl:mr-20 relative">
         <Logo className="absolute top-5 left-5 hidden md:flex z-20 md:text-base lg:text-lg xl:text-xl" />
         <p className="absolute font-p1 bottom-5 left-5 z-10">
           <a href="https://dribbble.com/nguyenhut">dribbble/@nguyenhut</a>
@@ -121,13 +122,13 @@ export default function Signup() {
         <div className="md:hidden">
           <GradientAccent />
         </div>
-        <Card className="w-11/12 flex flex-col rounded-3xl py-2 min-h-fit md:gap-0 md:border-none md:shadow-none md:py-0 md:w-4/6 lg:gap-0 xl:gap-8 xl:w-11/12">
-          <CardHeader>
+        <Card className="w-11/12 flex flex-col rounded-3xl py-2 min-h-fit gap-3 md:gap-0 md:border-none md:shadow-none md:py-0 md:w-4/6 lg:gap-0 xl:gap-8 xl:w-11/12">
+          <CardHeader className="pb-2">
             <CardTitle className="uppercase font-p3 text-2xl">
               render.io
             </CardTitle>
           </CardHeader>
-          <CardContent className="flex flex-col w-full h-full gap-5">
+          <CardContent className="flex flex-col w-full h-full gap-5 md:gap-0 xl:gap-5 pb-2">
             <h3 className="text-2xl font-p1">Create your account</h3>
             <Form {...form}>
               <form

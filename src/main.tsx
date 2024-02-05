@@ -21,6 +21,7 @@ const BlogPage = lazy(() => import("./components/BlogPage/BlogPage.tsx"));
 const UserProfilePage = lazy(() => import("./pages/UserProfilePage.tsx"));
 const BlogDraft = lazy(() => import("./pages/BlogDraft.tsx"));
 const ForgotPasswordPage = lazy(() => import("./pages/ForgotPasswordPage.tsx"));
+const ResetPassword = lazy(() => import("./pages/ResetPassword.tsx"));
 const PageNotFound = lazy(() => import("./pages/PageNotFound.tsx"));
 
 // import React from "react";
@@ -92,6 +93,14 @@ const router = createBrowserRouter([
     element: (
       <Suspense fallback={<></>}>
         <ForgotPasswordPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/resetPassword/:tokenId",
+    element: (
+      <Suspense fallback={<></>}>
+        <ResetPassword />
       </Suspense>
     ),
   },
